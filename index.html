@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igniting Minds - After School Program | Chennai</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        :root {
+            --light-blue: #e1f5fe;
+            --medium-blue: #4fc3f7;
+            --dark-blue: #0290c9;
+            --orange: #ff9800;
+            --red: #ff5252;
+            --dark: #333;
+            --section-spacing: 80px;
+        }
+        
+        body {
+            background-color: #f9fdff;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: var(--section-spacing) 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--orange);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 8px rgba(255, 152, 0, 0.3);
+            margin-top: 15px;
+        }
+        
+        .btn:hover {
+            background: var(--red);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(255, 82, 82, 0.4);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--dark-blue);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--orange);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 12px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--dark-blue);
+        }
+        
+        .logo span {
+            color: var(--orange);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            font-size: 1rem;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--orange);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark-blue);
+            margin: 3px 0;
+            transition: all 0.3s ease;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(79, 195, 247, 0.85), rgba(2, 144, 201, 0.9)), var(--hero-bg, url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'));
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero-content h2 {
+            font-size: 3.2rem;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            color: var(--dark-blue);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+        
+        /* Programs Section */
+        .programs {
+            background-color: var(--light-blue);
+        }
+        
+        .program-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+        
+        .program-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            border-top: 5px solid var(--orange);
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .program-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .program-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .program-card:hover .program-img img {
+            transform: scale(1.1);
+        }
+        
+        .program-info {
+            padding: 25px;
+        }
+        
+        .program-info h3 {
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .program-info p {
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        /* World Scholars Cup Section */
+        .scholars-section {
+            background: linear-gradient(to right, var(--medium-blue), var(--dark-blue));
+            color: white;
+        }
+        
+        .scholars-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .scholars-text {
+            flex: 1;
+        }
+        
+        .scholars-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+        
+        .scholars-list {
+            margin: 25px 0;
+        }
+        
+        .scholars-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            line-height: 1.6;
+        }
+        
+        .scholars-list i {
+            color: var(--orange);
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+        
+        .scholars-image {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .scholars-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Location Section */
+        .location-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .address {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+            text-align: center;
+            max-width: 650px;
+            border-left: 5px solid var(--orange);
+        }
+        
+        .address h3 {
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .address p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .map {
+            width: 100%;
+            height: 450px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--light-blue);
+        }
+        
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--light-blue);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+            opacity: 0.7;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 25px;
+            font-style: italic;
+            line-height: 1.7;
+            color: #555;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .author-details h4 {
+            color: var(--dark-blue);
+            margin-bottom: 5px;
+        }
+        
+        .author-details p {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--light-blue);
+        }
+        
+        .contact-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 60px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            color: var(--dark-blue);
+        }
+        
+        .contact-info > p {
+            line-height: 1.7;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .contact-details {
+            margin-top: 30px;
+        }
+        
+        .contact-details p {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+        
+        .contact-details i {
+            margin-right: 15px;
+            color: var(--orange);
+            font-size: 1.3rem;
+            width: 25px;
+            text-align: center;
+        }
+        
+        .contact-image {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 25px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-links {
+            margin: 25px 0;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 15px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--orange);
+        }
+        
+        .copyright {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            :root {
+                --section-spacing: 70px;
+            }
+            
+            .about-content, .scholars-content, .contact-content {
+                flex-direction: column;
+            }
+            
+            .contact-image {
+                display: none;
+            }
+            
+            .hero-content h2 {
+                font-size: 2.7rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            :root {
+                --section-spacing: 60px;
+            }
+            
+            .navbar {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links li {
+                margin: 8px 15px;
+            }
+            
+            .hero {
+                height: 80vh;
+                margin-top: 70px;
+            }
+            
+            .hero-content h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .logo img {
+                height: 40px;
+            }
+            
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            
+            .menu-toggle {
+                display: flex;
+                position: absolute;
+                right: 20px;
+                top: 25px;
+            }
+            
+            .nav-links {
+                display: none;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .nav-links li {
+                margin: 12px 0;
+            }
+            
+            .program-cards, .testimonial-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            :root {
+                --section-spacing: 50px;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.7rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.8rem;
+            }
+            
+            .address {
+                padding: 25px;
+            }
+            
+            .contact-info {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="logo.png" alt="Igniting Minds Logo">
+                    <h1>Igniting <span>Minds</span></h1>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#scholars">World Scholars</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#location">Location</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Igniting Young Minds for a Brighter Future</h2>
+                <p>An after school program in Chennai designed to nurture creativity, critical thinking, and holistic development in children.</p>
+                <a href="#contact" class="btn">Enroll Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>Learn what makes Igniting Minds special</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>At Igniting Minds, we believe every child has unique potential waiting to be unlocked. Our after school program provides a stimulating environment where children can explore, create, and grow beyond the traditional classroom.</p>
+                    <p>Founded by experienced educators, our program combines academic support with creative activities to foster well-rounded development. We focus on building confidence, curiosity, and critical thinking skills that will serve children throughout their lives.</p>
+                    <p>Our dedicated team of mentors and teachers are passionate about helping each child discover their strengths and overcome challenges in a supportive, nurturing atmosphere.</p>
+                    <a href="#programs" class="btn">Our Programs</a>
+                </div>
+                <div class="about-image">
+                    <img src="about-image.jpg" alt="Children learning at Igniting Minds">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="programs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Programs</h2>
+                <p>Comprehensive after school activities for holistic development</p>
+            </div>
+            <div class="program-cards">
+                <div class="program-card">
+                    <div class="program-img">
+                        <img src="academic-program.jpg" alt="Academic Support">
+                    </div>
+                    <div class="program-info">
+                        <h3>Academic Excellence</h3>
+                        <p>Personalized tutoring and homework help across all subjects with experienced educators who make learning engaging and effective.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-img">
+                        <img src="stem-program.jpg" alt="STEM Learning">
+                    </div>
+                    <div class="program-info">
+                        <h3>STEM Exploration</h3>
+                        <p>Hands-on science, technology, engineering, and math activities that spark curiosity and develop problem-solving skills.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-img">
+                        <img src="arts-program.jpg" alt="Creative Arts">
+                    </div>
+                    <div class="program-info">
+                        <h3>Creative Arts</h3>
+                        <p>From painting to pottery, drama to dance, our arts program encourages self-expression and creative thinking.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- World Scholars Cup Section -->
+    <section id="scholars" class="scholars-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>World Scholars Cup Preparation</h2>
+                <p>Specialized training for academic excellence and global competition</p>
+            </div>
+            <div class="scholars-content">
+                <div class="scholars-text">
+                    <h3>Excel in Global Academic Competitions</h3>
+                    <p>Our specialized World Scholars Cup program prepares students to excel in this prestigious global academic competition. We provide comprehensive training in all areas of the competition:</p>
+                    <ul class="scholars-list">
+                        <li><i class="fas fa-check-circle"></i> Collaborative Writing strategies and techniques</li>
+                        <li><i class="fas fa-check-circle"></i> Scholar's Challenge subject mastery</li>
+                        <li><i class="fas fa-check-circle"></i> Team Debate preparation and practice</li>
+                        <li><i class="fas fa-check-circle"></i> Curriculum-aligned subject knowledge building</li>
+                        <li><i class="fas fa-check-circle"></i> Mock tournaments and practice sessions</li>
+                        <li><i class="fas fa-check-circle"></i> Critical thinking and rapid learning skills</li>
+                    </ul>
+                    <p>Our experienced coaches have a proven track record of helping students achieve top honors at regional and global rounds of the World Scholars Cup.</p>
+                    <a href="#contact" class="btn">Learn More About Our WSC Program</a>
+                </div>
+                <div class="scholars-image">
+                    <img src="scholars-cup.jpg" alt="World Scholars Cup Preparation">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Parents Say</h2>
+                <p>Testimonials from our satisfied parents</p>
+            </div>
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>Igniting Minds has transformed my child's approach to learning. The personalized attention and creative teaching methods have made a significant difference in both academic performance and confidence.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="parent1.jpg" alt="Parent">
+                        <div class="author-details">
+                            <h4>Priya Sharma</h4>
+                            <p>Parent of Arjun, Grade 5</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>The STEM program is exceptional! My daughter now looks forward to learning about science and technology. The hands-on projects have ignited her curiosity in ways I never thought possible.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="parent2.jpg" alt="Parent">
+                        <div class="author-details">
+                            <h4>Rajesh Kumar</h4>
+                            <p>Parent of Meera, Grade 6</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>The World Scholars Cup preparation has been incredible. My son's confidence and knowledge have grown tremendously, and he's now competing at an international level!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="parent3.jpg" alt="Parent">
+                        <div class="author-details">
+                            <h4>Lakshmi Venkat</h4>
+                            <p>Parent of Vikram, Grade 7</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Location</h2>
+                <p>Conveniently located in Kilpauk, Chennai</p>
+            </div>
+            <div class="location-content">
+                <div class="address">
+                    <h3>Visit Our Center</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Bishop Ezra, 67/1, Sargunam Road, opposite Prive restaurant, Kilpauk, Chennai, Tamil Nadu 600010</p>
+                </div>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.238075500966!2d80.2442154759961!3d13.080579587227835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5266066df5b58d%3A0x6d783fac58f7b48d!2s67%2F1%2C%20Sargunam%20Rd%2C%20Kilpauk%2C%20Chennai%2C%20Tamil%20Nadu%20600010!5e0!3m2!1sen!2sin!4v1693499999999!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch to learn more or schedule a visit</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Start the Conversation</h3>
+                    <p>We'd love to hear from you. Whether you have questions about our programs, want to schedule a tour, or are ready to enroll your child, we're here to help.</p>
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> Bishop Ezra, 67/1, Sargunam Road, Kilpauk, Chennai</p>
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-envelope"></i> info@ignitingminds.com</p>
+                        <p><i class="fas fa-clock"></i> Monday-Saturday: 2:00 PM - 7:00 PM</p>
+                    </div>
+                </div>
+                <div class="contact-image">
+                    <img src="contact-image.jpg" alt="Children at Igniting Minds">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <img src="logo.png" alt="Igniting Minds Logo" height="40">
+                    <h1>Igniting <span>Minds</span></h1>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p class="copyright">&copy; 2023 Igniting Minds After School Program. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        const links = document.querySelectorAll('.nav-links a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Function to change hero background
+        function changeHeroBackground(imageUrl) {
+            document.documentElement.style.setProperty('--hero-bg', `url('${imageUrl}')`);
+        }
+
+        // Example: To change the background, call changeHeroBackground('your-image-url.jpg');
+    </script>
+</body>
+</html>
